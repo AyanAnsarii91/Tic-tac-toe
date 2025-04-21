@@ -1,0 +1,10 @@
+[build]
+  base = "/"                # Root directory of the project
+  publish = "public"        # Static files are in the public folder
+  functions = "functions"   # Serverless functions are in the functions folder
+
+[[redirects]]
+  from = "/socket.io/*"
+  to = "/.netlify/functions/socket.js"  # Points to the socket.js serverless function
+  status = 200
+  force = true
