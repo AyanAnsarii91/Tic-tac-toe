@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Landing Screen -->
+        <section id="landing-screen" class="screen active">
+            <h1 class="game-title">Tic-Tac-Toe</h1>
+            <div class="form-group">
+                <input type="text" id="player-name" placeholder="Enter your name" maxlength="15">
+                <button id="create-room-btn" class="btn">Create Room</button>
+                <div class="or-divider">OR</div>
+                <div class="form-group">
+                    <input type="text" id="room-id-input" placeholder="Enter Room ID">
+                    <button id="join-room-btn" class="btn">Join Room</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Waiting Screen -->
+        <section id="waiting-screen" class="screen">
+            <h2>Waiting for Opponent</h2>
+            <div class="loader"></div>
+            <div class="room-info">
+                <p>Room ID: <span id="room-id-display"></span></p>
+                <button id="copy-room-id" class="btn small">
+                    <i class="fas fa-copy"></i> Copy
+                </button>
+            </div>
+            <p>Share this ID with a friend to play together</p>
+            <button id="cancel-room" class="btn danger">Cancel</button>
+        </section>
+
+        <!-- Game Screen -->
+        <section id="game-screen" class="screen">
+            <div class="game-header">
+                <div class="score-display">
+                    <div id="player-x-score" class="player-score">
+                        <span class="player-name">Player X</span>: <span class="score">0</span>
+                    </div>
+                    <div id="player-o-score" class="player-score">
+                        <span class="player-name">Player O</span>: <span class="score">0</span>
+                    </div>
+                </div>
+                <div id="turn-indicator">
+                    <span id="current-player"></span>'s turn
+                </div>
+            </div>
+
+            <div class="game-container">
+                <div class="game-board">
+                    <div class="cell" data-index="0"></div>
+                    <div class="cell" data-index="1"></div>
+                    <div class="cell" data-index="2"></div>
+                    <div class="cell" data-index="3"></div>
+                    <div class="cell" data-index="4"></div>
+                    <div class="cell" data-index="5"></div>
+                    <div class="cell" data-index="6"></div>
+                    <div class="cell" data-index="7"></div>
+                    <div class="cell" data-index="8"></div>
+                </div>
+
+                <div class="chat-container">
+                    <div class="chat-header">
+                        <h3>Game Chat</h3>
+                    </div>
+                    <div class="chat-messages" id="chat-messages">
+                        <div class="system-message">Game started. Good luck!</div>
+                    </div>
+                    <div class="chat-input-container">
+                        <input type="text" id="chat-input" placeholder="Type a message...">
+                        <button id="send-message" class="btn small">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-controls">
+                <button id="new-game-btn" class="btn">New Game</button>
+                <button id="leave-game-btn" class="btn danger">Leave Room</button>
+            </div>
+        </section>
+
+        <!-- Game Result Modal -->
+        <div id="result-modal" class="modal">
+            <div class="modal-content">
+                <div id="result-message"></div>
+                <div class="modal-buttons">
+                    <button id="play-again-btn" class="btn">Play Again</button>
+                    <button id="exit-game-btn" class="btn danger">Exit</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notifications -->
+        <div id="notification" class="notification"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="socket.js"></script>
+</body>
+
+</html>
