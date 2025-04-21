@@ -1,10 +1,12 @@
 {
+  "homepage": "https://yourusername.github.io/Tic-tac-toe-frontend",
   "name": "tic-tac-toe",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh-pages -d ."
   },
   "keywords": [],
   "author": "",
@@ -14,5 +16,8 @@
     "express": "^5.1.0",
     "socket.io": "^4.8.1",
     "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   }
 }
